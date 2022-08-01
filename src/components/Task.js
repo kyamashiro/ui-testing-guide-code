@@ -1,24 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Checkbox,
-  Flex,
-  IconButton,
-  Input,
-  Box,
-  VisuallyHidden,
-} from '@chakra-ui/react';
-import { BellIcon } from '@chakra-ui/icons';
+import {Box, Checkbox, Flex, IconButton, Input, VisuallyHidden,} from '@chakra-ui/react';
+import {BellIcon} from '@chakra-ui/icons';
 
 export const Task = ({
-  task: { id, title, state },
-  onArchiveTask,
-  onTogglePinTask,
-  onEditTitle,
-  ...props
-}) => (
-  <Flex
-    as="li"
+                       task: {id, title, state},
+                       onArchiveTask,
+                       onTogglePinTask,
+                       onEditTitle,
+                       ...props
+                     }) => (
+    <Flex
+        as="li"
     _notLast={{
       borderBottom: '1px',
       borderColor: 'gray.200',
@@ -43,15 +36,15 @@ export const Task = ({
     <Box width="full" as="label">
       <VisuallyHidden>Edit</VisuallyHidden>
       <Input
-        variant="unstyled"
-        flex="1 1 auto"
-        color={state === 'TASK_ARCHIVED' ? 'gray.400' : 'gray.700'}
-        textDecoration={state === 'TASK_ARCHIVED' ? 'line-through' : 'none'}
-        fontSize="md"
-        fontWeight="bold"
-        isTruncated
-        value={title}
-        onChange={(e) => onEditTitle(e.target.value, id)}
+          variant="unstyled"
+          flex="1 1 auto"
+          color={state === 'TASK_ARCHIVED' ? 'gray.600' : 'gray.700'}
+          textDecoration={state === 'TASK_ARCHIVED' ? 'line-through' : 'none'}
+          fontSize="md"
+          fontWeight="bold"
+          isTruncated
+          value={title}
+          onChange={(e) => onEditTitle(e.target.value, id)}
       />
     </Box>
     <IconButton
